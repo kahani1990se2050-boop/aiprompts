@@ -5,144 +5,137 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PromptVault - Free AI Prompts & Digital Templates</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Live Cricket Score</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-        header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: #4f46e5; text-decoration: none; }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: #64748b; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #4f46e5; }
-        .hero { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; text-align: center; padding: 4rem 1rem; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; }
-        .search-box { max-width: 600px; margin: 0 auto; display: flex; background: white; padding: 5px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .search-box input { flex: 1; border: none; padding: 12px 20px; font-size: 1rem; outline: none; border-radius: 50px; }
-        .search-box button { background: #4f46e5; color: white; border: none; padding: 10px 25px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: background 0.3s; }
-        .container { max-width: 1200px; margin: 3rem auto; padding: 0 20px; }
-        .section-title { font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card-content { padding: 20px; }
-        .tag { display: inline-block; background: #e0e7ff; color: #4f46e5; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; }
-        .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #0f172a; }
-        .prompt-text { background: #f1f5f9; padding: 12px; border-radius: 8px; font-size: 0.9rem; color: #334155; font-family: monospace; margin-bottom: 15px; max-height: 100px; overflow-y: auto; }
-        .card-footer { padding: 15px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
-        .copy-btn { background: #4f46e5; color: white; border: none; padding: 8px 15px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; cursor: pointer; }
-        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 2rem; margin-top: 4rem; }
-        footer a { color: #818cf8; text-decoration: none; margin: 0 10px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .score-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #1a365d;
+            margin-bottom: 5px;
+        }
+        .live-indicator {
+            color: #e53e3e;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        #match-name {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        #score {
+            font-size: 32px;
+            color: #2b6cb0;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #status {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #2b6cb0;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo"><i class="fa-solid fa-wand-magic-sparkles"></i> PromptVault</a>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
-    </header>
 
-    <section class="hero">
-        <h1>Discover Best AI Prompts & Templates</h1>
-        <p>Boost your creativity with ready-to-use Midjourney, ChatGPT, and Video Generation prompts.</p>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search prompts..." onkeyup="searchPrompts()">
-            <button>Search</button>
-        </div>
-    </section>
-
-    <div class="container">
-        <h2 class="section-title">Trending AI Prompts</h2>
-        <div class="grid" id="promptGrid">
-            
-            <div class="card">
-                <div class="card-content">
-                    <span class="tag">Midjourney / 3D</span>
-                    <h3>3D Pixar Style Character</h3>
-                    <div class="prompt-text">A 6-year-old cute Indian boy wearing a yellow hoodie, smiling, sitting on a vintage wooden chair, cinematic lighting, 8k, unreal engine 5.</div>
-                </div>
-                <div class="card-footer"><span style="font-size: 0.8rem; color: #64748b;">Verified Prompt</span><button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button></div>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <span class="tag">ChatGPT / YouTube</span>
-                    <h3>Viral YouTube Video Script</h3>
-                    <div class="prompt-text">Write an engaging 60-second YouTube Shorts script about childhood memories in India, starting with a strong hook and emotional ending.</div>
-                </div>
-                <div class="card-footer"><span style="font-size: 0.8rem; color: #64748b;">Verified Prompt</span><button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button></div>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <span class="tag">Instagram / Reel</span>
-                    <h3>Motivational Captions</h3>
-                    <div class="prompt-text">Generate 5 short, impactful Hindi-English mix Instagram captions for a hustle and self-growth video with relevant trending hashtags.</div>
-                </div>
-                <div class="card-footer"><span style="font-size: 0.8rem; color: #64748b;">Verified Prompt</span><button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button></div>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <span class="tag">Video / AI</span>
-                    <h3>Cinematic Drone Shot Prompt</h3>
-                    <div class="prompt-text">FPV drone shot flying over misty green Himalayan mountains during sunrise, cinematic lighting, ultra-realistic, 4k resolution.</div>
-                </div>
-                <div class="card-footer"><span style="font-size: 0.8rem; color: #64748b;">Verified Prompt</span><button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button></div>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <span class="tag">ChatGPT / Blogging</span>
-                    <h3>SEO Optimized Article Outline</h3>
-                    <div class="prompt-text">Create a detailed SEO blog post outline with H1, H2, and H3 headings for the topic: 'Best online tools for students in 2026'.</div>
-                </div>
-                <div class="card-footer"><span style="font-size: 0.8rem; color: #64748b;">Verified Prompt</span><button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button></div>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <span class="tag">Midjourney / Cyberpunk</span>
-                    <h3>Futuristic Cityscape</h3>
-                    <div class="prompt-text">Futuristic cyberpunk city street at night in 2050, neon glowing lights, flying cars, rainy reflections, hyper-detailed, photorealistic.</div>
-                </div>
-                <div class="card-footer"><span style="font-size: 0.8rem; color: #64748b;">Verified Prompt</span><button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button></div>
-            </div>
-
-        </div>
+    <div class="score-card">
+        <h1>Cricket Live Score</h1>
+        <div class="live-indicator">● LIVE</div>
+        
+        <div id="match-name">Loading match details...</div>
+        <div id="score">--/--</div>
+        <div id="status">Please wait...</div>
+        
+        <button onclick="fetchScore()">Refresh Score</button>
     </div>
 
-    <footer>
-        <p>&copy; 2026 PromptVault. All rights reserved.</p>
-        <p style="margin-top: 10px;">
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="terms.html">Terms & Conditions</a> | 
-            <a href="contact.html">Contact Us</a>
-        </p>
-    </footer>
-
     <script>
-        function copyPrompt(button) {
-            const promptBox = button.closest('.card').querySelector('.prompt-text');
-            navigator.clipboard.writeText(promptBox.innerText).then(() => {
-                button.innerText = 'Copied!';
-                button.style.backgroundColor = '#10b981';
-                setTimeout(() => { button.innerText = 'Copy Prompt'; button.style.backgroundColor = '#4f46e5'; }, 2000);
-            });
+        // YAHAN APNA API KEY DAALEIN
+        const API_KEY = "ec069a9f-e2f0-441e-9cec-"; 
+        
+        // CricAPI endpoint for current matches
+        const API_URL = `https://api.cricapi.com/v1/currentMatches?apikey=${API_KEY}&offset=0`;
+
+        async function fetchScore() {
+            document.getElementById('status').innerText = "Fetching live score...";
+            
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                if (data.status !== "success") {
+                    document.getElementById('status').innerText = "API Error. Check API Key.";
+                    return;
+                }
+
+                // Pehla live match uthayenge
+                const liveMatch = data.data.find(match => match.matchStarted === true);
+
+                if (liveMatch) {
+                    document.getElementById('match-name').innerText = liveMatch.name;
+                    document.getElementById('status').innerText = liveMatch.status;
+
+                    // Agar score available hai
+                    if (liveMatch.score && liveMatch.score.length > 0) {
+                        const currentInning = liveMatch.score[0]; // Latest inning
+                        document.getElementById('score').innerText = 
+                            `${currentInning.r}/${currentInning.w} (${currentInning.o} Overs)`;
+                    } else {
+                        document.getElementById('score').innerText = "Score not updated yet";
+                    }
+                } else {
+                    document.getElementById('match-name').innerText = "No Live Matches Right Now";
+                    document.getElementById('score').innerText = "-";
+                    document.getElementById('status').innerText = "Try again later";
+                }
+                
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById('status').innerText = "Failed to load data. Check internet.";
+            }
         }
-        function searchPrompts() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                let text = card.innerText.toLowerCase();
-                card.style.display = text.includes(input) ? '' : 'none';
-            });
-        }
+
+        // Page load hote hi score fetch karega
+        fetchScore();
+        
+        // Har 30 seconds mein apne aap score update karne ke liye (30000 milliseconds)
+        setInterval(fetchScore, 30000);
     </script>
+
 </body>
 </html>
